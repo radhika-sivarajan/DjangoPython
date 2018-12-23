@@ -3,5 +3,5 @@ geckodriver.log
 __pycache__
 *.pyc
 .vscode
-.vscode/settings.json
 .DS_Store
+.vscode/settings.json
