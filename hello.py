@@ -1,10 +1,18 @@
-class Person:
-  def __init__(mysillyobject, name, age):
-    mysillyobject.name = name
-    mysillyobject.age = age
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
 
-  def myfunc(abc):
-    print("Hello my name is " + abc.name)
+  def __next__(self):
+    x = self.a
+    self.a += 1
+    return x
 
-p1 = Person("John", 36)
-p1.myfunc()
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
