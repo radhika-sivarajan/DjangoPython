@@ -30,13 +30,13 @@ class NewVisitorTest(unittest.TestCase):
         # After enter the item table updated
         inputbox.send_keys('Buy peacock feathers')
         inputbox.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(2)
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
             any(row.text == '1: Buy peacock feathers' for row in rows),
-            "New to-do item did not appear in table"
+            f"New to-do item did not appear in table. Contents were:\n {table.text}"
         )
 
         self.fail('Finish the test')
