@@ -57,8 +57,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
 
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
-        self.wait_for_row_in_list_table(
-            '2: Use peacock feathers to make a fly')
+        self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
     def test_multiple_users_can_start_lists_at_different_urls(self):
         # Edith's enter item
@@ -100,7 +99,6 @@ class NewVisitorTest(LiveServerTestCase):
         # site remember the list generated a URL
 
         self.fail('Finish the test')
-
         # check the URL
 
         # URL works
