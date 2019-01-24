@@ -98,7 +98,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # site remember the list generated a URL
 
-        self.fail('Finish the test')
+        # self.fail('Finish the test')
         # check the URL
 
         # URL works
