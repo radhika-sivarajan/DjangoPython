@@ -9,7 +9,7 @@ import os
 # constant
 MAX_WAIT = 10
 
-
+# Classes and functions
 class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
