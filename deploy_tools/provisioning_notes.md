@@ -27,8 +27,7 @@ eg, on Ubuntu:
 ## Folder structure:
 
 Assume we have a user account at /home/username
-
-/home/username
+```bash
 └── sites
     ├── DOMAIN1
     │    ├── .env
@@ -40,3 +39,4 @@ Assume we have a user account at /home/username
          ├── .env
          ├── db.sqlite3
          ├── etc
+```
