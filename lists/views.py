@@ -1,13 +1,15 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from lists.models import Item, List
 from django.core.exceptions import ValidationError
+
+from lists.forms import ItemForm
+from lists.models import Item, List
 
 # Views for adding item, viewing and creating new list
 
 
 def home_page(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'form': ItemForm()})
 
 def view_list(request, list_id):
     list_ = List.objects.get(id=list_id)
