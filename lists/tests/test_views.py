@@ -5,13 +5,12 @@ from django.utils.html import escape
 
 from lists.views import home_page
 from lists.models import Item, List
-from lists.forms import ItemForm, EMPTY_ITEM_ERROR
-from unittest import skip
-
 from lists.forms import (
     DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR,
     ExistingListItemForm, ItemForm,
 )
+
+from unittest import skip
 
 
 class homePageTest(TestCase):
@@ -25,6 +24,13 @@ class homePageTest(TestCase):
 
 
 class ListViewtest(TestCase):
+    def post_invalid_input(self):
+        list_ = List.objects.create()
+        return self.client.post(
+            f'/lists/{list_.id}/',
+            data={'text': ''}
+        )
+
     def test_uses_list_template(self):
         list_ = List.objects.create()
         response = self.client.get(f'/lists/{list_.id}/')
@@ -109,25 +115,7 @@ class ListViewtest(TestCase):
         self.assertTemplateUsed(response, 'list.html')
         self.assertEqual(Item.objects.all().count(), 1)
 
-    def test_validation_errors_end_up_on_lists_page(self):
-        list_ = List.objects.create()
-        response = self.client.post(
-            f'/lists/{list_.id}/',
-            data={'text': ''}
-        )
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'list.html')
-        expected_error = escape("You can't have an empty list item")
-        self.assertContains(response, expected_error)
 
-    def post_invalid_input(self):
-        list_ = List.objects.create()
-        return self.client.post(
-            f'/lists/{list_.id}/',
-            data={'text': ''}
-        )
-
-    
 class NewListTest(TestCase):
     def test_can_save_POST_request(self):
         self.client.post('/lists/new', data={'text': 'A new list item'})
