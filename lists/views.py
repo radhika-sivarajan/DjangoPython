@@ -7,8 +7,6 @@ from lists.models import Item, List
 from lists.forms import ExistingListItemForm, ItemForm
 
 # Views for adding item, viewing and creating new list
-
-
 def home_page(request):
     return render(request, 'home.html', {'form': ItemForm()})
 

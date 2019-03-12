@@ -6,7 +6,6 @@ import time
 
 MAX_WAIT = 10
 
-# Classes and functions
 class FunctionalTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()

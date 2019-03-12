@@ -1,5 +1,4 @@
 from django.test import TestCase
-from lists.forms import ItemForm
 from lists.forms import (
     DUPLICATE_ITEM_ERROR, EMPTY_ITEM_ERROR,
     ExistingListItemForm, ItemForm
@@ -28,6 +27,7 @@ class ItemFormTest(TestCase):
         self.assertEqual(new_item, Item.objects.first())
         self.assertEqual(new_item.text, 'do me')
         self.assertEqual(new_item.list, list_)
+
 
 class ExistingListItemFormTest(TestCase):
 
